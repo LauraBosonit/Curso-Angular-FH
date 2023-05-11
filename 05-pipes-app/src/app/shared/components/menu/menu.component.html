@@ -1,0 +1,11 @@
+<!-- <p-menubar [model]="menuItems">
+    <img src="./favicon.ico" alt="Icono">
+</p-menubar> -->
+
+<div class="card">
+    <p-menubar [model]="menuItems">
+        <ng-template pTemplate="end">
+            <img src="./favicon.ico" height="30" class="mr-2" />
+        </ng-template>
+    </p-menubar>
+</div>

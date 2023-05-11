@@ -1,0 +1,58 @@
+<p-panel header="Pipes básicos" class="p-1">
+    <p>Pipes incluídos en Angular - Usualmente en el Common Module</p>
+</p-panel>
+
+<div class="grid">
+    <div class="col-4 md:col-4">
+        <p-card header="uppercase">{{nameLower}} -> {{nameLower | uppercase}}</p-card>
+    </div>
+
+    <div class="col-4 md:col-4">
+        <p-card header="lowercase">{{nameUpper}} -> {{nameUpper | lowercase}}</p-card>
+    </div>
+
+    <div class="col-4 md:col-4">
+        <p-card header="titlecase">{{fullName}} -> {{fullName | titlecase}}</p-card>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-card header="Pipe">
+            <ol>
+                <li>fecha</li>
+                <li>fecha | date:'short'</li>
+                <li>fecha | date:'long'</li>
+                <li>fecha | date:'MMMM'</li>
+                <li>fecha | date:'MMMM dd, yyyy'</li>
+            </ol>
+
+            <hr>
+
+            <ol>
+                <li>fecha | date:'long':'GMT-6'</li>
+                <li>fecha | date:'long':'GMT-4'</li>
+                <li>fecha | date:'long':'':'es-ES'</li>
+                <li>fecha | date:'long':'':'fr-CA'</li>
+            </ol>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="Salida">
+            <ol>
+                <li>{{currentDate}}</li>
+                <li>{{currentDate | date: 'short'}}</li>
+                <li>{{currentDate | date: 'long'}}</li>
+                <li>{{currentDate | date: 'MMMM'}}</li>
+                <li>{{currentDate | date: 'MMMM dd, yyyy'}}</li>
+            </ol>
+            
+            <hr>
+
+            <ol>
+                <li>{{currentDate | date:'long':'GMT-6'}} </li>
+                <li>{{currentDate | date:'long':'GMT-4'}}</li>
+                <li>{{currentDate | date:'long':'':'es-HN'}}</li>
+                <li>{{currentDate | date:'long':'':'fr-CA'}}</li>
+            </ol>
+        </p-card>
+    </div>
+</div>

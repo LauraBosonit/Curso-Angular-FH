@@ -7,6 +7,8 @@
         <p-card header="Pipe">
             <ol>
                 <li>Redondeo -> numero | number:'1.2-2'</li>
+                <li>Monedas -> numero | currency:'EUR':'symbol-narrow'</li>
+                <li>Porcentaje con decimales -> numero | percent:'1.2-2'</li>
             </ol>
         </p-card>
     </div>
@@ -14,7 +16,9 @@
     <div class="col-12 md:col-6">
         <p-card header="Salida">
             <ol>
-                <li>{{totalSells | currency:'1.2-2'}}</li>
+                <li>{{totalSells | number:'1.2-2'}}</li>
+                <li>{{totalSells | currency:'EUR':'symbol-narrow':'1.4-4'}}</li>
+                <li>{{percent | percent:'1.2-2'}}</li>
             </ol>
         </p-card>
     </div>

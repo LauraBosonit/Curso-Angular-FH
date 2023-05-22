@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from 'src/app/shared/services/validators.service';
+import { EmailValidatorService } from 'src/app/shared/validators/email-validator.service';
+// import * as customValidators from 'src/app/shared/validators/validators';
 
 @Component({
   selector: 'app-register-page',
@@ -7,4 +11,31 @@ import { Component } from '@angular/core';
 })
 export class RegisterPageComponent {
 
+  public registerForm: FormGroup = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]],
+    // email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)], [new EmailValidatorService()]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)], [this.emailValidator]],
+    username: ['', [Validators.required, this.validatorsService.cantBeStrider]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', Validators.required]
+  }, {
+    validators: [
+      this.validatorsService.isFieldOneEqualFieldTwo('password', 'password2'),
+    ]
+  });
+
+  constructor(private formBuilder: FormBuilder, private validatorsService: ValidatorsService, private emailValidator: EmailValidatorService) {}
+
+  isValidField(field: string) {
+    return this.validatorsService.isValidField(this.registerForm, field)
+  }
+
+  onSubmit() {
+    if(this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    console.log(this.registerForm.value);
+  }
 }

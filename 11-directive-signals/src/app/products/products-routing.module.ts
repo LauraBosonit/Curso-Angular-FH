@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductComponent } from './pages/product/product.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 const routes: Routes = [
-  { path: '', children: [
-    { path: 'product', component: ProductComponent },
-    { path: '**', redirectTo: 'product' },
+  { path: "", children: [
+    { path: "product", component: ProductPageComponent },
+    { path: "**", redirectTo: "product" }
   ]}
 ];
 
